@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Apple",
+    "price": 1.29,
+    "category": "Fruit",
+    "stock": 40,
+    "description": "Fresh crisp apples."
+  },
+  {
+    "id": 2,
+    "name": "Banana",
+    "price": 1.49,
+    "category": "Fruit",
+    "stock": 32,
+    "description": "Sweet ripe bananas."
+  },
+  {
+    "id": 3,
+    "name": "Orange",
+    "price": 1.99,
+    "category": "Fruit",
+    "stock": 25,
+    "description": "Juicy oranges."
+  },
+  {
+    "id": 4,
+    "name": "Mango",
+    "price": 2.49,
+    "category": "Exotic",
+    "stock": 14,
+    "description": "A ripe tropical mango."
+  },
+  {
+    "id": 5,
+    "name": "Watermelon",
+    "price": 4.99,
+    "category": "Fruit",
+    "stock": 8,
+    "description": "Refreshing watermelon."
+  },
+  {
+    "id": 6,
+    "name": "Wassermelone",
+    "price": 2.49,
+    "category": "exotisch",
+    "stock": 30,
+    "description": "sehr frisch"
+  }
+]

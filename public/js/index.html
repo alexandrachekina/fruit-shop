@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FruitShop | Produktverwaltung</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="client.js"></script>
+</head>
+<body>
+<div class="app-shell">
+    <aside class="sidebar">
+        <a class="brand" href="#"><span class="brand-mark">F</span><span>Fruit<span class="brand-accent">Shop</span></span></a>
+        <p class="nav-label">MENÜ</p>
+        <a class="nav-link active" href="#dashboard"><span>▦</span> Übersicht</a>
+        <a class="nav-link" href="#products"><span>◉</span> Produkte</a>
+        <div class="sidebar-bottom"><div class="sidebar-note"><span class="status-dot"></span><div><strong>Client verbunden</strong><small>Produktverwaltung</small></div></div></div>
+    </aside>
+
+
+    <main class="main-content" id="dashboard">
+        <header class="topbar"><div><p class="eyebrow">INVENTORY MANAGEMENT</p><h1>Produktverwaltung</h1><p class="subtitle">Verwalte deine Produkte zentral und übersichtlich.</p></div><button id="addProductButton" class="button button-primary"><span>＋</span> Neues Produkt</button></header>
+
+        <div id="globalMessage" class="message" hidden role="status"></div>
+
+
+        <section class="stats-grid" aria-label="Kennzahlen">
+            <article class="stat-card"><div class="stat-icon green">◉</div><div><span class="stat-label">Produkte insgesamt</span><strong id="totalProducts">—</strong></div></article>
+            <article class="stat-card"><div class="stat-icon blue">▤</div><div><span class="stat-label">Lagerbestand</span><strong id="totalStock">—</strong><small>Einheiten</small></div></article>
+            <article class="stat-card"><div class="stat-icon purple">€</div><div><span class="stat-label">Warenwert (Preis × Bestand)</span><strong id="inventoryValue">—</strong></div></article>
+        </section>
+
+
+        <section class="panel" id="products">
+            <div class="panel-header"><div><h2>Alle Produkte</h2><p>Produkte laden, suchen, hinzufügen oder bearbeiten.</p></div><button id="refreshButton" class="button button-outline">↻ Aktualisieren</button></div>
+            <div class="toolbar"><label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Produktname oder Kategorie suchen…" autocomplete="off"></label><select id="categoryFilter" aria-label="Kategorie filtern"><option value="all">Alle Kategorien</option></select><span id="resultCount" class="result-count"></span></div>
+            <p id="loadingState" class="state loading" hidden>Produkte werden geladen …</p><p id="emptyState" class="state" hidden>Keine Produkte gefunden. Füge dein erstes Produkt hinzu.</p>
+            <div class="table-wrap"><table><thead><tr><th>ID</th><th>Produkt</th><th>Kategorie</th><th>Preis</th><th>Bestand</th><th>Status</th><th class="actions-heading">Aktionen</th></tr></thead><tbody id="productTableBody"></tbody></table></div>
+        </section>
+        <footer class="footer">FruitShop Client <span>·</span> Produktverwaltung</footer>
+    </main>
+</div>
+
+
+<dialog id="productDialog" class="dialog"><form id="productForm" class="dialog-form">
+    <div class="dialog-header"><div><p class="eyebrow" id="dialogEyebrow">PRODUKT</p><h2 id="dialogTitle">Neues Produkt</h2></div><button type="button" id="dialogX" class="icon-button" aria-label="Dialog schließen">×</button></div>
+    <input type="hidden" id="productId">
+    <div class="form-grid"><label class="form-field full">Produktname<input id="productName" name="name" required maxlength="100" placeholder="z. B. Mango"></label><label class="form-field">Kategorie<input id="productCategory" name="category" maxlength="50" placeholder="z. B. Exotisch"></label><label class="form-field">Preis (€)<input id="productPrice" name="price" type="number" min="0" step="0.01" required placeholder="2.49"></label><label class="form-field">Lagerbestand<input id="productStock" name="stock" type="number" min="0" step="1" required placeholder="25"></label><label class="form-field full">Beschreibung<textarea id="productDescription" name="description" rows="3" maxlength="500" placeholder="Kurze Produktbeschreibung …"></textarea></label></div>
+    <p id="formError" class="form-error" hidden></p><div class="dialog-actions"><button type="button" id="cancelButton" class="button button-outline">Abbrechen</button><button type="submit" id="saveButton" class="button button-primary">Produkt speichern</button></div>
+</form></dialog>
+
+
+<dialog id="detailsDialog" class="dialog details-dialog"><div class="dialog-form"><div class="dialog-header"><div><p class="eyebrow">PRODUKTDETAILS</p><h2 id="detailsTitle">Produkt</h2></div><button type="button" id="detailsX" class="icon-button" aria-label="Dialog schließen">×</button></div><div id="detailsContent" class="details-content"></div><div class="dialog-actions"><button id="detailsClose" class="button button-outline" type="button">Schließen</button></div></div></dialog>
+</body>
+</html>
